@@ -1,23 +1,25 @@
-import logo from './logo.svg';
+import 'bulma/css/bulma.css';
 import './App.css';
+import {Routes, Navigate, Route} from 'react-router-dom';
+import Navbar from './components/pages/Navbar';
+import Auth from  './components/pages/Auth';
+import Playlist from './components/pages/Playlist';
+import Home from './components/pages/Home';
+import SignOut from './components/pages/Signout';
+
 
 function App() {
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {localStorage.getItem('access_token') ? (<Navbar />) :(<></>)}
+      <Routes>
+        <Route path='/' element={<Navigate to='/home' />}/>        
+        <Route path='/home' element={<Home />}/> 
+        <Route path='/auth' element={<Auth/>}/>        
+        <Route path='/playlist' element={<Playlist/>}/>        
+        <Route path='/signout' element={<SignOut/>}/>
+      </Routes>
     </div>
   );
 }

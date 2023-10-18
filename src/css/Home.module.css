@@ -1,0 +1,23 @@
+.homeBg{
+   background-color: hsla(0, 0%, 100%, 0.55);
+   color:rgb(222, 207, 188);
+   height: 80%;
+   width: 95%;
+   /* border-radius: 5px; */
+   
+   display: flex;
+   flex-direction: column;
+   text-align: center;
+   justify-content: center;
+   align-items: center;
+   font-size: 7vh;
+   cursor: pointer;      
+}
+
+img{
+   image-rendering: auto;
+   border-image-width: 80%;
+}
+
+
+
