@@ -5,6 +5,7 @@ import Navbar from './components/pages/Navbar';
 import Auth from  './components/pages/Auth';
 import Playlist from './components/pages/Playlist';
 import Home from './components/pages/Home';
+import HomeNew from './components/pages/HomeNew';
 import SignOut from './components/pages/Signout';
 
 
@@ -15,11 +16,12 @@ function App() {
       <Routes>
         <Route path='/' element={<Navigate to='/home' />}/>        
         <Route path='/home' element={<Home />}/> 
+        <Route path='/homenew' element={<HomeNew />}/> 
         <Route path='/auth' element={<Auth/>}/>        
         <Route path='/playlist' element={<Playlist/>}/>        
         <Route path='/signout' element={<SignOut/>}/>
       </Routes>
-      {localStorage.getItem('access_token') ? (<Navbar />) :(<></>)}
+      {/* {localStorage.getItem('access_token') ? (<Navbar />) :(<></>)} */}
     </div>
   );
 }

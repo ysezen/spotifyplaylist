@@ -1,25 +1,83 @@
-.bodyContainer{
+:root{
+   --gap:10px;
+   --numberOfMainColumn:2;
+   --numberOfRowLeftColumn:2;
+   --numberOfRowRightColumn:1;
+   --totalVirtualMainColumn:5;
+   --totalVirtualMainRow:5;
+   --containerPadding:10px 10px;
+   --mainBodyContainerHeight:90%
+}
+
+.grid {   
+   width: calc(100% - var(--gap));   
    height: 90%;
-   display: flex;
-   flex-direction: row;
-   gap: 1%;
-   justify-content: center;
-   padding: 5px 0px;
-   flex-wrap: wrap;
+   display: grid;
+   color:white;
+   grid-template-columns: 20% 80%;
+   gap:var(--gap);
+ }
+ 
+.bodyContainer{   
+   padding: var(--containerPadding); 
+     
  }
 
- .container{
-   width: calc((100% - ((3 + 1) * 1)) / 3);
-   background-color: #121212;
+ .container{  
+   padding: var(--containerPadding);  
+   background-color: #747474a1;
    border-radius: 8px;
    cursor: default;
  }
+
+ .flexRow{
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   gap: var(--gap);
+ }
+
+ .flexColumn{   
+   display: flex;
+   flex-direction: column;
+   gap: var(--gap);
+   height: 100%;      
+   justify-content: center;  
+ }
+
+ .flexColumnLink{   
+   display: flex;
+   flex-direction: column;
+   gap: var(--gap);
+   height: 20%; 
+   min-height: 120px;  
+   max-height: 120px;  
+   justify-content: center;  
+ }
+
+ .rowWidthLeftSide{
+   width: calc(100% * 1 / var(--totalVirtualMainColumn));
+ }
+
+ .rowWidthRightSide{
+   width: calc(100% * 4 / var(--totalVirtualMainColumn) - var(--gap));
+ }
+
+ .columnHeightUpSide{
+   height: calc(100% * 1 / var(--totalVirtualMainRow));
+ }
+
+
 
  @media (max-width: 768px) {
    .container{
       width: 100%;   
  }
+ 
 }
+
+/*calc((100% - ((var(--num-containers) + 1) * 1%)) / var(--num-containers));*/
+
 /* .homeBg{
    background-color: hsla(0, 0%, 100%, 0.55);
    color:rgb(222, 207, 188);

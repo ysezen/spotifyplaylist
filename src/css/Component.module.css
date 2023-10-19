@@ -1,5 +1,5 @@
 .bodyContainer {
-  background-image: url("../images/BGNew.png");
+  /* background-image: url("../images/BGNew.png"); */
   background-size: cover;
   background-position: center;
   color: rgb(48, 46, 46);
@@ -7,6 +7,7 @@
   top: 0;
   left: 0;
   height: 100%;
+  width: 100%;
   z-index: 1;  
 }
 

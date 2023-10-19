@@ -12,22 +12,23 @@ function Navbar() {
 
   const link = localStorage.getItem('access_token') ? (
     <>
-      <Link className="homeicon" to='/home'>Home</Link>
-      <Link to='/playlist'>Playlists</Link>
-      <Link onClick={signOut} to='/signout'>Sign Out</Link>
+      <Link className="homeicon" to='/home'>Ana sayfa</Link>
+      <Link to='/playlist'>Ara</Link>
     </>
+
+
   ) : (
     <Link to='/auth'>Sign In</Link>
   );
 
   return (
     <>
-    <nav>
-      {link}
-    </nav>  
+      <nav>
+        {link}
+      </nav>
     </>
-    
-    
+
+
   );
 }
 
