@@ -1,0 +1,123 @@
+:root {
+   --bodyContainerBGColor: hsla(0, 0%, 0%, 1); 
+   --bodyContainerTextColor: hsl(120, 19%, 91%); 
+   --mainContainerBGColor: hsla(0, 0%, 7%,1);
+   --mainContainerTextColor: hsl(0, 0%, 70%,1);; 
+   --subContainerBGColor: hsla(120, 1%, 39%, 0.932); 
+   --subContainerTextColor: hsl(120, 19%, 91%); 
+   
+ }
+ 
+ .bodyContainer{
+   height: 90%;
+   display: flex;
+   flex-direction: row;
+   gap: 1%;
+   justify-content: center;
+   padding: 10px 0px;
+   flex-wrap: wrap;
+   overflow: visible scroll;
+ }
+
+ .bodyContainer::-webkit-scrollbar {
+   display: none;
+   }
+
+ .container{
+   width: calc(100% / (3 - 1) * 1%);/*48%;*/
+   background-color: #121212;
+   border-radius: 8px;
+   cursor: default;
+   overflow: visible scroll;
+ }
+
+ .container::-webkit-scrollbar {
+   display: none;
+   }
+ @media (max-width: 768px) {
+   .container{
+      width: 100%;   
+ }
+}
+
+
+
+
+
+ 
+
+
+
+
+ /*
+ 
+.bodyContainer{   
+   height: 90%;
+   width: 100%;     
+   font-size: 2rem;
+   margin: 0px;
+   padding: 10px;
+   background-color: var(--bodyContainerBGColor);      
+   color:var(--bodyContainerTextColor);   
+   letter-spacing: 2px;   
+   border: 1px solid red;     
+}
+
+.mainContainer{   
+   height: 95%; 
+   width: 100%;    
+   font-size: 1rem; 
+   padding: 10px;  
+   border-radius: 5px;
+   background-color: var(--mainContainerBGColor);      
+   color:var(--mainContainerTextColor);       
+   letter-spacing: 2px;   
+   border:1px solid red;   
+}
+
+
+.subContainer{        
+   height: 100%;
+   width: 100%;    
+   font-size: 1rem;
+   border-radius: 0.5rem; 
+   border: 1px solid green;  
+}
+
+
+
+.blockRow{   
+   display: block;
+   position:unset;   
+   bottom:0;
+   top:0;
+   left:0;
+   right:0;   
+}
+
+.flexRow{   
+   display: flex;
+   flex-direction: row;
+   gap: 1rem; 
+    
+   
+}
+
+.flexColumn{   
+   display: flex;
+   flex-direction: column;
+ 
+}
+
+.aligncenter{
+   text-align: center;
+   justify-content: center;   
+   align-content: center;
+}
+
+.alignleft{
+   text-align: left;
+   justify-content: flex-start;   
+   align-content: flex-start;   
+}
+ */

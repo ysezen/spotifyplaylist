@@ -1,18 +1,27 @@
-import React, { useEffect } from 'react';
-import styles from '../../css/Component.module.css';
-import styleshome from '../../css/Home.module.css';
-import { getLocalStorage,getUrlParams } from '../../services/worker/AuthPKCE'
-import image from '../../images/spotify2.png'
+import React from 'react';
+import ContainerBox from '../material/ContainerBox';
+import styles from '../../css/Container.module.css';
 
-export default function SignOut() {  
+export default function SignOut() {
+  const bodyContainer = ['bodyContainer', 'blockRow', 'alignleft'];
+  const mainContainer = ['mainContainer', 'flexRow', 'alignleft'];
+  const subContainer = ['subContainer', 'flexColumn', 'aligncenter'];
+
+  const styleSheet = (arr, obj) => {
+    const result = arr.map(className => obj[className]).join(' ');
+    return result;
+  };
+
   return (
     <>
-      <div className={styles.bodyContainer}>
-        <div className={styleshome.homeBg}>
-          <img className={styles.mainImg} src={image} alt="oldu mu?" />
-          <p>SignOut, Click <a href="/auth">Sign In</a> for reLogin</p>
-        </div>
-      </div>
+      <ContainerBox {...{ classNames: styleSheet(bodyContainer, styles)}}>
+        <ContainerBox {...{ classNames: styleSheet(mainContainer, styles) }}>
+          <ContainerBox {...{ classNames: styleSheet(subContainer, styles), title: 'Playlist' }}></ContainerBox>
+          <ContainerBox {...{ classNames: styleSheet(subContainer, styles), title: 'Search' }}></ContainerBox>
+          <ContainerBox {...{ classNames: styleSheet(subContainer, styles), title: 'Songs' }}></ContainerBox>
+        </ContainerBox>
+      </ContainerBox>
+
     </>
   );
 }

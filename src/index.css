@@ -6,11 +6,19 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
-  background-color: black;
+  box-sizing: border-box; 
+  overflow: visible scroll;
   
 }
+body::-webkit-scrollbar {
+  display: none;
+  }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#root{
+  height: 100%;  
 }

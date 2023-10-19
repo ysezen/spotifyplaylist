@@ -12,7 +12,7 @@ function Navbar() {
 
   const link = localStorage.getItem('access_token') ? (
     <>
-      <Link to='/home'>Home</Link>
+      <Link className="homeicon" to='/home'>Home</Link>
       <Link to='/playlist'>Playlists</Link>
       <Link onClick={signOut} to='/signout'>Sign Out</Link>
     </>
@@ -21,9 +21,13 @@ function Navbar() {
   );
 
   return (
+    <>
     <nav>
       {link}
-    </nav>
+    </nav>  
+    </>
+    
+    
   );
 }
 

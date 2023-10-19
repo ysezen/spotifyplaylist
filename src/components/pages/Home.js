@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import styles from '../../css/Component.module.css';
+import styles from '../../css/Home.module.css';
 import { getLocalStorage, getUrlParams } from '../../services/worker/AuthPKCE';
 import image from '../../images/spotify2.png';
 
@@ -17,8 +17,18 @@ export default function Home() {
   })
   return (
     <>
-      <div className={styles.bodyContainer}>
-        <img className={styles.mainImg} src={image} alt="oldu mu?" />
+      <div className={`${styles.bodyContainer}`}>
+        <div className={`${styles.container}`}>
+         
+        </div>
+        <div className={`${styles.container}`}>
+
+        </div>
+
+        <div className={`${styles.container}`}>
+
+        </div>
+
       </div>
     </>
   );

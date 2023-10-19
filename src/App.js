@@ -11,8 +11,7 @@ import SignOut from './components/pages/Signout';
 function App() {
   
   return (
-    <div className="App">
-      {localStorage.getItem('access_token') ? (<Navbar />) :(<></>)}
+    <div className="App">      
       <Routes>
         <Route path='/' element={<Navigate to='/home' />}/>        
         <Route path='/home' element={<Home />}/> 
@@ -20,6 +19,7 @@ function App() {
         <Route path='/playlist' element={<Playlist/>}/>        
         <Route path='/signout' element={<SignOut/>}/>
       </Routes>
+      {localStorage.getItem('access_token') ? (<Navbar />) :(<></>)}
     </div>
   );
 }

@@ -2,6 +2,7 @@ nav {
   /*background:linear-gradient(120deg, #1db954af, #000000);*/
   padding: 15px 30px;
   border-bottom: 1px solid lightgray;
+  height: 10%;
 }
 
 nav a {
