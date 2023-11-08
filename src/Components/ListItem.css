@@ -1,0 +1,56 @@
+.plitemContainer {
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-start;
+   align-items: center;  
+   gap: 10px;
+   z-index: 100;
+   color: var(--text-base);   
+   cursor: pointer;
+   padding: 8px 10px;   
+   border-radius: 5px;
+ } 
+
+ .plitemContainer:hover{
+    background-color: var(--background-tinted-press);
+    transition: all 0.1s ease-in-out;
+ }
+
+ .plitemContainer:active{
+  background-color: var(--background-tinted-highlight);
+  transition: all 0.1s ease-in-out;
+}
+
+ .plitemImage{  
+  display: flex;
+  justify-content: center;
+}
+ .plitemImage > img{
+   width: 48px;
+   border-radius: 2px;      
+ }
+
+ .plitemInfo{
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: flex-start;     
+   gap: 5px;
+   z-index: 100;
+   color: var(--text-base);   
+   cursor: pointer;
+ }
+
+ .plitemInfo > h3{   
+   font-size: medium;
+   font-weight: 400;
+   letter-spacing: 0.5px;
+ }
+
+ .plitemInfo > span{   
+   font-size: small;
+   text-indent: 15px;
+   color: var(--text-passive);
+   
+ }
+ 

@@ -1,0 +1,77 @@
+.login{
+   display: flex;
+   flex-direction: column;
+   place-items: center;
+   height: 100vh;
+   background-color: black;
+
+}
+.login > div > img{
+   object-fit: contain;
+   width: 100%;
+   max-height: 40%;   
+   transition: all 1s ease-in-out; 
+}
+
+.login > div > img:hover{
+   object-fit: contain;
+   width: 100%;
+   max-height: 43%;
+   transition: all 1s ease-in-out;   
+}
+
+.login > div {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   align-items: center;
+   justify-content: center;
+   width: 100%;
+   height: 50%;
+   margin-top: 10px;
+   
+
+
+}
+.login > div > a {
+   display: flex;
+   justify-content: center;
+   align-items: center;   
+   background-color: black;
+   font-weight: 400;
+   font-size: 7em; /* Adjusted font size */
+   color: #1db954;
+   text-decoration: none;
+   width: 25%; 
+   border-radius: 80px;
+   border: 1px solid #1db954;
+   cursor: pointer;
+   transition: all 1s ease-in-out; 
+}
+
+.login > div > button {
+   display: flex;
+   justify-content: center;
+   align-items: center;   
+   background-color: black;
+   font-weight: 400;
+   font-size: 7em; /* Adjusted font size */
+   color: #1db954;
+   text-decoration: none;
+   width: 25%; 
+   border-radius: 80px;
+   border: 1px solid #1db954;
+   cursor: pointer;
+   transition: all 1s ease-in-out; 
+}
+
+.login > div > button:hover {
+   box-shadow: 1px 1px 10px 1px #1db954;
+   transition: all 0.6s ease-in-out;     
+}
+
+
+.login > div > a:hover {
+   box-shadow: 1px 1px 10px 1px #1db954;
+   transition: all 0.6s ease-in-out;     
+}

@@ -1,0 +1,44 @@
+.iconContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;  
+  gap: 10px;
+  z-index: 100;
+  color: var(--text-passive);
+  cursor: pointer;  
+}
+.iconStyle {
+  width: 24px;
+  height: 24px;    
+  transition: all 0.3s ease-in-out;
+  fill: var(--text-passive);
+  stroke: "none";
+  stroke-width: 1;
+  stroke-opacity: 1;
+  fill-rule: "nonzero";
+  text-align: center;
+  vertical-align: middle; 
+  z-index: 100;
+}
+
+.icontitle{
+   text-decoration: none;      
+   letter-spacing: 0.5px;   
+   z-index: 100;
+   font-family: 'CircularSpotifyText-Bold';
+}
+
+
+.iconContainer:hover .icontitle {
+  color: var(--text-base); 
+  transition: all 0.1s ease-in-out;
+  
+}
+
+.iconContainer:hover .iconStyle {  
+  fill: var(--text-base);
+  transition: all 0.1s ease-in-out;
+  
+ 
+}

@@ -1,0 +1,137 @@
+*{
+  text-decoration: none;
+}
+.app{   
+   height: 100vh;
+   width: 100vw;
+}
+
+.mainHome {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+   height: 100vh;
+   gap: var(--gap);
+   padding: var(--padding);
+   background-color: #000;
+   color: var(--tittle-passive);
+   > * {
+     height: 100%;
+     width: 100%;
+     border-radius: var(--border-radius);     
+     display: flex;
+     gap: var(--gap);
+     flex-direction: column;
+   }
+   > .leftSide {    
+     flex:0.4;    
+     > * {
+       border-radius: var(--border-radius);
+       background-color: var(--background-base);
+       padding: var(--padding);
+       width: 100%;
+     }
+     > .leftSideTop {
+       height: 10%;      
+       display: flex;
+       flex-direction: column;
+       width: 100%;
+       justify-content: space-around;
+       gap:var(--gap);
+       > * {
+          width: 100%;
+       }
+     }
+     > .leftSidePlaylist {
+       height: 90%;       
+       display: flex;
+       flex-direction: column;
+       gap:var(--gap);       
+       > .leftSidePlayListContainer{
+        display: flex;        
+        flex-direction: row;
+        height: 100%;
+        width: 100%;        
+        overflow-y: scroll;
+        > .listContainer { 
+          display: flex;     
+          flex-direction: column;          
+          width: 100%;
+          > .listSub {
+            overflow-y: scroll;    
+            width: 100%;
+
+          }
+          
+        }
+     }
+     }
+     
+   }
+   > .rightSide {    
+     flex:0.6;
+     display: flex;
+      flex-direction: column;
+     background-color: var(--background-base);
+     padding: var(--padding);
+     color: aliceblue;
+     > .rightSideTop {
+       height: 10%;
+       display: flex;
+       flex-direction: column;
+       width: 100%;
+       justify-content: space-around;
+       gap:var(--gap);
+       > * {
+          width: 100%;
+       }
+       > .searchbutton{
+        background-color: var(--background-tinted-press);
+        border-radius: 20px;
+        height: 50px;
+        padding-left:10px ;
+        color: var(--text-passive);
+        font-size: 1.2rem;      
+       }
+     }
+     > .searchResult {
+       height: 90%;
+       display: flex;
+       flex-direction: column;
+       gap:var(--gap);
+       overflow-y: scroll;
+     
+     }
+     
+   }
+ }
+
+ .leftSidePlayListContainer::-webkit-scrollbar {
+  width: 15px; /* width of the entire scrollbar */
+  border-radius: 2px;
+  background: #f1f1f100; /* color of the entire scrollbar */
+}
+
+::-webkit-scrollbar {
+  width: 15px; /* width of the entire scrollbar */
+  border-radius: 2px;
+  background: #f1f1f100; /* color of the entire scrollbar */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f100; /* color of the tracking area */
+  border-radius: var(--border-radius);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #66666650; /* color of the scroll thumb */
+  border-radius: var(--border-radius);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* color of the scroll thumb on hover */
+}

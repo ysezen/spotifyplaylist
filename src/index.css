@@ -1,17 +1,60 @@
 @font-face {
    font-family: 'CircularSpotifyText-Light';
-   src: url(./fonts/CircularSpotifyText-Light.otf);
+   src: url(./Assets/fonts/CircularSpotifyText-Light.otf) format('opentype');
 }
+
+@font-face {
+   font-family: 'CircularSpotifyText-Bold';
+   src: url(./Assets/fonts/CircularSpotifyText-Bold.otf);
+}
+
 *{
    margin: 0;
-   padding: 0;
-   overflow: hidden;
+   padding: 0;   
    box-sizing: border-box;
    font-family: 'CircularSpotifyText-Light';
 }
-
-#root{
-   width: 100vw;   
-   height: 100vh;   
+body{
+   width: 100vw;
+   height: 100vh;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
 }
 /* hide scrollbar but allow scrolling */
+
+:root {
+   --background-base: #121212;
+   --background-highlight: #1a1a1a;
+   --background-press: #000;
+   --background-elevated-base: #242424;
+   --background-elevated-highlight: #2a2a2a;
+   --background-elevated-press: #000;
+   --background-tinted-base: hsla(0, 0%, 100%, 0.07);
+   --background-tinted-highlight: hsla(0, 0%, 100%, 0.1);
+   --background-tinted-press: hsla(0, 0%, 100%, 0.04);
+   --background-unsafe-for-small-text-base: #121212;
+   --background-unsafe-for-small-text-highlight: #121212;
+   --background-unsafe-for-small-text-press: #121212;
+   --text-base: #fff;
+   --text-subdued: #a7a7a7;
+   --text-bright-accent: #1ed760;
+   --text-negative: #f15e6c;
+   --text-warning: #ffa42b;
+   --text-passive: #b3b3b3;
+   --text-positive: #1ed760;
+   --text-announcement: #3d91f4;   
+   --essential-base: #fff;
+   --essential-subdued: #727272;
+   --essential-bright-accent: #1ed760;
+   --essential-negative: #e91429;
+   --essential-warning: #ffa42b;
+   --essential-positive: #1ed760;
+   --essential-announcement: #0d72ea;
+   --decorative-base: #fff;
+   --decorative-subdued: #292929;
+   --gap: 10px;
+   --border-radius:8px;
+   --padding:10px;
+   
+ }
+ 
