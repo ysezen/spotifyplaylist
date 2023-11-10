@@ -3,31 +3,80 @@ import { Link } from 'react-router-dom'
 import Icon from '../Components/Icon'
 import List from '../Components/List'
 import SpotifyManager from '../Services/SpotifyManager'
+import { act } from 'react-dom/test-utils'
 
 export default function LeftSide() {
 
-  const sampleData = {
+  const samplePlaylistData = {
     total: 2,
     items: [
       {
         title: "Beğenilen Şarkılar",
-        songCount: 25,
+        total: 25,
         image: "https://picsum.photos/200"
       },
       {
         title: "Beğenilen Şarkılar2",
-        songCount: 30,
+        total: 30,
         image: "https://picsum.photos/200"
       }
     ]
   }
 
-  const [playListData, setPlayListData] = React.useState(sampleData);
+  const samplePlaylistTracks = {
+    total: 2,
+    items: [
+      {
+        id: "1",
+        title: "Şarkı İsmi",
+        owner: "Şarkıcı",
+        album: "Albüm",
+        uri: "",
+        image: "https://picsum.photos/200",
+        type: "track"
+      },
+      {
+        id: "2",
+        title: "Şarkı İsmi",
+        owner: "Şarkıcı",
+        album: "Albüm",
+        uri: "",
+        image: "https://picsum.photos/200",
+        type: "track"
+      }
+    ]
+  }
+
+  const [playListData, setPlayListData] = React.useState(samplePlaylistData);
+  const [activePlayList, setActivePlayList] = React.useState(null);
+  const [activePlayListTracks, setActivePlayListTracks] = React.useState(samplePlaylistTracks);
 
   useEffect(() => {
     SpotifyManager.getMyPlayList().then(data => setPlayListData(data));
-  }
-    , []);
+  }, []);
+
+  useEffect(() => {
+    if (activePlayList !== null) {
+      const result = SpotifyManager.getPlayListTracks(activePlayList);
+      result.then(data => setActivePlayListTracks(data));
+    }
+  }, [activePlayList]);
+
+  const handleListClick = (id, type) => {
+    switch (type) {
+      case 'playlist':
+        setActivePlayList(id);
+        break;
+      case 'playListtrack':
+        console.log('playlist_track_played');
+        break;
+      case 'searchListtrack':
+        console.log('search_track_played');
+        break;
+      default:
+        break;
+    }
+  };
 
   return (
     <>
@@ -41,10 +90,10 @@ export default function LeftSide() {
 
           <div className="leftSidePlayListContainer">
             <div className="listContainer">
-              <List data={playListData.items} />
+              <List onItemClick={handleListClick} data={playListData.items} />
             </div>
             <div className="listContainer">
-              <List data={playListData.items} />
+              <List onItemClick={handleListClick} data={activePlayListTracks ? activePlayListTracks.items : samplePlaylistTracks.items} />
             </div>
           </div>
         </div>
@@ -53,3 +102,4 @@ export default function LeftSide() {
 
   )
 }
+

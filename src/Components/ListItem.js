@@ -1,9 +1,9 @@
 import React from 'react'
 import './ListItem.css'
 
-export default function ListItem({title, total, image, owner}) {
+export default function ListItem({id, type, title, total, image, owner, handleClick}) {  
   return (
-    <div className="plitemContainer">
+    <div className="plitemContainer" onClick={() => handleClick(id,type)}  data-id={id}>
       <div className="plitemImage">
         <img src={image ? image : "https://picsum.photos/200"} alt="playlist" />
       </div>

@@ -8,7 +8,8 @@ const Converter = {
                title: item.name,
                total: item.tracks.total,
                image: item.images[0].url,
-               owner: item.owner.display_name
+               owner: item.owner.display_name,
+               type: item.type
             }
          })
       }
@@ -21,17 +22,34 @@ const Converter = {
          id: data.id
       }
    },
-   toTracks(data) {
+   toPlayListTracks(data) {
       return{
-         total: data.tracks.total,
-         items: data.tracks.items.map(item => {
+         total: data.total,
+         items: data.items.map(item => {
+            return {
+               id: item.track.id,
+               title: item.track.name,
+               owner: item.track.artists[0].name,
+               album: item.track.album.name,
+               uri: item.track.uri,
+               image: item.track.album.images[0].url,
+               type: 'playListtrack'
+            }         
+         })
+      }
+   },
+   toSearchTracks({tracks: data}) {
+      return{
+         total: data.total,
+         items: data.items.map(item => {
             return {
                id: item.id,
                title: item.name,
                owner: item.artists[0].name,
                album: item.album.name,
                uri: item.uri,
-               image: item.album.images[0].url
+               image: item.album.images[0].url,
+               type: 'searchListtrack'
             }         
          })
       }

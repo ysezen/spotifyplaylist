@@ -14,9 +14,7 @@ function App() {
 
   useEffect(() => {
     const result = SpotifyManager.checkLogin();
-    setIstoken(result);
-    console.log(result);
-    console.log(isToken);
+    setIstoken(result);    
   }, [isToken]);
 
   if (isToken) {

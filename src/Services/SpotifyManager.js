@@ -49,9 +49,28 @@ const SpotifyManager = {
         headers: { Authorization: `Bearer ${accessToken}` },
       })
         .then(response => response.json())
-        .then(data => {
+        .then(data => {        
           return Converter.toPlayList(data);
         });
+    },
+
+    async getPlayListTracks(playlistId) {
+      const accessToken = this.getAccessToken();
+      try {
+        const response = await fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks?limit=10&offset=0`, {
+          headers: { Authorization: `Bearer ${accessToken}` },
+        });
+    
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }    
+        const data = await response.json();           
+        return Converter.toPlayListTracks(data);
+        
+
+      } catch (error) {
+        console.error('There has been a problem with your fetch operation:', error);
+      }
     },
 
     async search(term) {
@@ -63,10 +82,10 @@ const SpotifyManager = {
     
         if (!response.ok) {
           throw new Error('Network response was not ok');
-        }
-    
+        }    
         const data = await response.json();
-        return Converter.toTracks(data);
+        return Converter.toSearchTracks(data);
+
       } catch (error) {
         console.error('There has been a problem with your fetch operation:', error);
       }
