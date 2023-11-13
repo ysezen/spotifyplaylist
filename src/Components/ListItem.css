@@ -54,3 +54,17 @@
    
  }
  
+ .contextMenu {
+  position: absolute;  
+  z-index: 1;
+  background-color: var(--background-base);
+  border: 1px solid var(--background-tinted-base);
+  color: var(--text-base);  
+  padding: 0px 10px;
+  z-index: 1000;
+}
+
+.contextMenuItem {
+  cursor: pointer;
+  margin: 10px 0px;
+}

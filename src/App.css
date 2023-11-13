@@ -51,20 +51,11 @@
        > .leftSidePlayListContainer{
         display: flex;        
         flex-direction: row;
+        gap:var(--gap);
         height: 100%;
         width: 100%;        
         overflow-y: scroll;
-        > .listContainer { 
-          display: flex;     
-          flex-direction: column;          
-          width: 100%;
-          > .listSub {
-            overflow-y: scroll;    
-            width: 100%;
-
-          }
-          
-        }
+        
      }
      }
      
@@ -113,31 +104,3 @@
    }
  }
 
- .leftSidePlayListContainer::-webkit-scrollbar {
-  width: 15px; /* width of the entire scrollbar */
-  border-radius: 2px;
-  background: #f1f1f100; /* color of the entire scrollbar */
-}
-
-::-webkit-scrollbar {
-  width: 15px; /* width of the entire scrollbar */
-  border-radius: 2px;
-  background: #f1f1f100; /* color of the entire scrollbar */
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f100; /* color of the tracking area */
-  border-radius: var(--border-radius);
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #66666650; /* color of the scroll thumb */
-  border-radius: var(--border-radius);
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555; /* color of the scroll thumb on hover */
-}

@@ -57,4 +57,33 @@ body{
    --padding:10px;
    
  }
+
+ .leftSidePlayListContainer::-webkit-scrollbar {
+   width: 15px; /* width of the entire scrollbar */
+   border-radius: 2px;
+   
+    /* color of the entire scrollbar */
+ }
+ 
+ ::-webkit-scrollbar {
+   width: 15px; /* width of the entire scrollbar */
+   border-radius: 2px;
+   
+ }
+ 
+ /* Track */
+ ::-webkit-scrollbar-track {    /* color of the tracking area */
+   border-radius: var(--border-radius);   
+ }
+ 
+ /* Handle */
+ ::-webkit-scrollbar-thumb {
+   background: var(--background-tinted-base); /* color of the scroll thumb */
+   border-radius: var(--border-radius);
+ }
+ 
+ /* Handle on hover */
+ ::-webkit-scrollbar-thumb:hover {
+   background: var(--background-tinted-highlight); /* color of the scroll thumb on hover */
+ }
  
