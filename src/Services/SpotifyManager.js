@@ -23,11 +23,11 @@ const SpotifyManager = {
       const _expiresIn = localStorage.getItem('expiresIn');
 
       if (!accessToken) {
-         window.location.href = 'http://localhost:3000/login';                
+         window.location.href = `${window.location.origin}/login`;                
       }else if(Date.now() > _expiresIn){
          localStorage.removeItem('access_token');
          localStorage.removeItem('expiresIn');
-         window.location.href = 'http://localhost:3000/login';
+         window.location.href = `${window.location.origin}/login`;
       }else{
       return localStorage.getItem('access_token');
       }

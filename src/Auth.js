@@ -18,11 +18,11 @@ export default function Auth() {
       if (_token) {
          localStorage.setItem('access_token', _token);
          localStorage.setItem('expiresIn', (_expiresIn *1000) + Date.now());
-         window.location.href = 'http://localhost:3000/home';
+         window.location.href = '/home';
       }
    }, [])
 
   return (
-    <div><a href='http://localhost:3000/'>Please click.</a>.</div>
+    <div><a href='/'>Please click.</a>.</div>
   )
 }
