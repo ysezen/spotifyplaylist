@@ -27,8 +27,8 @@ function App() {
           <LeftSide />
           <Routes>
             <Route path='/' element={<Navigate to='/home' />} />
-            <Route path='https://creative-brigadeiros-30cff5.netlify.app/home' element={<Home />} />            
-            <Route path='https://creative-brigadeiros-30cff5.netlify.app/search' element={<Search />} />
+            <Route path='/home' element={<Home />} />            
+            <Route path='/search' element={<Search />} />
             <Route path='/*' element={<Navigate to='/home' />} />
           </Routes>
         </div>
