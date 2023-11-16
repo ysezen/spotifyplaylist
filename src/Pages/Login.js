@@ -14,7 +14,7 @@ export default function Login() {
       const _expiresIn = localStorage.getItem('expiresIn');
 
       if (accessToken && (Date.now() < _expiresIn)){         
-         window.location.href = '/home';
+         window.location.href = 'https://creative-brigadeiros-30cff5.netlify.app/home';
 
       }else {
          window.location.href = accessUrl;                
