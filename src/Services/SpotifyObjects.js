@@ -1,4 +1,4 @@
-export const SpotifyObjects  = {
+const SpotifyObjects = {
    // Playlist object
    // https://developer.spotify.com/documentation/web-api/reference/#object-playlistobject
    playlist: {
@@ -51,3 +51,69 @@ export const SpotifyObjects  = {
       ]
     }
    }
+
+   const sampleSearchlistTracks = {
+    total: 2,
+      items: [
+        {
+          id: "1",
+          title: "Örnek Şarkı İsmi",
+          owner: "sample singer",
+          album: "Albüm",
+          uri: "",
+          image: "https://picsum.photos/200",
+          type: "searchListtrack"
+        },
+        {
+          id: "2",
+          title: "Örnek Şarkı İsmi",
+          owner: "sample singer",
+          album: "Albüm",
+          uri: "",
+          image: "https://picsum.photos/200",
+          type: "searchListtrack"
+        }
+      ]
+   }
+
+   const samplePlaylistData = {
+    total: 2,
+    items: [
+      {
+        title: "Beğenilen Şarkılar",
+        total: 25,
+        image: "https://picsum.photos/200"
+      },
+      {
+        title: "Beğenilen Şarkılar2",
+        total: 30,
+        image: "https://picsum.photos/200"
+      }
+    ]
+  }
+
+  const samplePlaylistTracks = {
+    total: 2,
+    items: [
+      {
+        id: "1",
+        title: "Şarkı İsmi",
+        owner: "Şarkıcı",
+        album: "Albüm",
+        uri: "",
+        image: "https://picsum.photos/200",
+        type: "track"
+      },
+      {
+        id: "2",
+        title: "Şarkı İsmi",
+        owner: "Şarkıcı",
+        album: "Albüm",
+        uri: "",
+        image: "https://picsum.photos/200",
+        type: "track"
+      }
+    ]
+  }
+
+   export {SpotifyObjects, sampleSearchlistTracks, samplePlaylistData, samplePlaylistTracks}

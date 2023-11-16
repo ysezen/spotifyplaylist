@@ -9,7 +9,7 @@ const Converter = {
                total: item.tracks.total,
                image: item.images[0].url,
                owner: item.owner.display_name,
-               type: item.type
+               type: 'playList'               
             }
          })
       }
@@ -33,7 +33,7 @@ const Converter = {
                album: item.track.album.name,
                uri: item.track.uri,
                image: item.track.album.images[0].url,
-               type: 'playListtrack'
+               type: 'playListTracks'               
             }         
          })
       }
@@ -49,7 +49,7 @@ const Converter = {
                album: item.album.name,
                uri: item.uri,
                image: item.album.images[0].url,
-               type: 'searchListtrack'
+               type: 'searchListTracks'
             }         
          })
       }

@@ -1,4 +1,6 @@
 import Converter from "./ObjectConverter";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SpotifyManager = {
    checkLogin() {
@@ -43,15 +45,22 @@ const SpotifyManager = {
          console.error("Error fetching user profile:", error);
       }
     },
-    getMyPlayList() {
+    async getMyPlayList() {
       const accessToken = this.getAccessToken();
-      return fetch('https://api.spotify.com/v1/me/playlists', {
-        headers: { Authorization: `Bearer ${accessToken}` },
-      })
-        .then(response => response.json())
-        .then(data => {        
-          return Converter.toPlayList(data);
+      try {
+        const response = await fetch('https://api.spotify.com/v1/me/playlists', {
+          headers: { Authorization: `Bearer ${accessToken}` },
         });
+
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }    
+        const data = await response.json();           
+        return Converter.toPlayList(data);
+        
+      } catch (error) {
+        console.error('There has been a problem with your fetch operation:', error);
+      }       
     },
 
     async getPlayListTracks(playlistId) {
@@ -85,6 +94,53 @@ const SpotifyManager = {
         }    
         const data = await response.json();
         return Converter.toSearchTracks(data);
+
+      } catch (error) {
+        console.error('There has been a problem with your fetch operation:', error);
+      }
+    },
+
+    async removeItemFromPlayList(playlistId, trackId) {
+      const accessToken = this.getAccessToken();
+      try {
+        const response = await fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`, {
+          method: 'DELETE',
+          headers: { 
+            Authorization: `Bearer ${accessToken}`, 
+            'Content-Type': 'application/json' },
+          body: JSON.stringify({ tracks: [{ uri: `spotify:track:${trackId}` }] })
+        });
+    
+        if (!response.ok) {
+
+          const err = await response.json();
+
+          throw new Error(err.error.message);
+        }    
+        const data = await response.json();
+        return data;
+
+      } catch (error) {
+        return toast.error(error.message);
+      }
+    },
+
+    async addItemToPlayList(playlistId, trackId) {
+      const accessToken = this.getAccessToken();
+      try {
+        const response = await fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`, {
+          method: 'POST',
+          headers: { 
+            Authorization: `Bearer ${accessToken}`, 
+            'Content-Type': 'application/json' },
+            body: JSON.stringify({  uris: [`spotify:track:${trackId}`]  })
+        });
+    
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }    
+        const data = await response.json();
+        return data;
 
       } catch (error) {
         console.error('There has been a problem with your fetch operation:', error);

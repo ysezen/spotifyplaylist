@@ -1,5 +1,7 @@
 import React from "react";
 import { Routes, Navigate, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import Auth from "./Auth";
@@ -20,6 +22,7 @@ function App() {
   if (isToken) {
     return (
       <div className="app">
+        <ToastContainer />
         <div className="mainHome">
           <LeftSide />
           <Routes>

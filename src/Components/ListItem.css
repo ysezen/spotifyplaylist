@@ -1,24 +1,50 @@
 .plitemContainer {
    display: flex;
    flex-direction: row;
-   justify-content: flex-start;
-   align-items: center;  
-   gap: 10px;
-   z-index: 100;
-   color: var(--text-base);   
    cursor: pointer;
    padding: 8px 10px;   
    border-radius: 5px;
  } 
+
+ .activeelement{
+  background-color: var(--background-tinted-highlight);
+  transition: all 0.1s ease-in-out;
+ }
+
+ .warningelement{
+  background-color: var(--background-tinted-warning);
+  transition: all 0.1s ease-in-out;
+ }
+
+ .plItemInfo{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;  
+  gap: 10px;
+  width: 100%;
+  color: var(--text-base);   
+ }
 
  .plitemContainer:hover{
     background-color: var(--background-tinted-press);
     transition: all 0.1s ease-in-out;
  }
 
- .plitemContainer:active{
-  background-color: var(--background-tinted-highlight);
-  transition: all 0.1s ease-in-out;
+.plitemAction{   
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;  
+  color: var(--text-base); 
+}
+.visible{
+  display: flex;
+  width: 20%;
+  max-width: 40px;
+}
+
+.hidden{
+  display: none;
 }
 
  .plitemImage{  
@@ -30,7 +56,7 @@
    border-radius: 2px;      
  }
 
- .plitemInfo{
+ .plitemLabels{
    display: flex;
    flex-direction: column;
    justify-content: flex-start;
@@ -41,13 +67,13 @@
    cursor: pointer;
  }
 
- .plitemInfo > h3{   
+ .plitemLabels > h3{   
    font-size: medium;
    font-weight: 400;
    letter-spacing: 0.5px;
  }
 
- .plitemInfo > span{   
+ .plitemLabels > span{   
    font-size: small;
    text-indent: 15px;
    color: var(--text-passive);

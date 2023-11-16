@@ -2,10 +2,15 @@ import React from 'react';
 import './icons.css';
 import { icons } from '../Assets/img/icons/SvgIcons';
 
-export default function Icon({ t, i, guid, adDetail }) {
+export default function ActionIcon({ t, i, guid, adDetail , handleActionItem}) {
   const findedIcon = icons.find(icon => icon.guid === guid);
+  
 
-   
+  const handleActionClick = (e) => {    
+    e.preventDefault();    
+    handleActionItem({action:guid});    
+  }
+ 
   if(adDetail === undefined) adDetail = '';
 
   if (!findedIcon) return null; 
@@ -17,7 +22,7 @@ export default function Icon({ t, i, guid, adDetail }) {
   if (t && !i) {
     return (
       <div className="iconContainer" 
-      >
+      onClick={handleActionClick}>
         <div><span className="icontitle">{t ? findedIcon.title + adDetail : ''}</span></div>
       </div>
     )    
@@ -25,7 +30,8 @@ export default function Icon({ t, i, guid, adDetail }) {
 
   if (!t && i) {
     return (
-      <div className="iconContainer">
+      <div className="iconContainer" 
+      onClick={handleActionClick}>
         <div className="iconStyle">
           <svg viewBox={findedIcon.viewBox}>
             <g>
@@ -40,7 +46,7 @@ export default function Icon({ t, i, guid, adDetail }) {
 
   return (
     <div className="iconContainer" 
-    >
+    onClick={handleActionClick}>
       <div className="iconStyle">
         <svg viewBox={findedIcon.viewBox}>
           <g>
