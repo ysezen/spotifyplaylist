@@ -14,7 +14,7 @@ export default function Login() {
       const _expiresIn = localStorage.getItem('expiresIn');
 
       if (accessToken && (Date.now() < _expiresIn)){         
-         window.location.href = `${window.location.origin}/home';
+         window.location.href = `${window.location.origin}/home`;
 
       }else {
          window.location.href = accessUrl;                
