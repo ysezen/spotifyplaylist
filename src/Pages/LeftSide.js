@@ -9,7 +9,7 @@ import { toast } from 'react-toastify'
 export default function LeftSide() {
 
   const [playListData, setPlayListData] = useState(samplePlaylistData);
-  const [activePlayListId, setActivePlayListId] = useState(null);  
+  const [activePlayListId, setActivePlayListId] = useState('2pHNxbDwpMKWoWkGlXFBzR');  
   const [activePlayListTracks, setActivePlayListTracks] = useState(samplePlaylistTracks);
   const [actionObject, setActionObject] = useState({});
   const [updatePlayList, setUpdatePlayList] = useState(0);
