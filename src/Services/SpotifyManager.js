@@ -73,8 +73,8 @@ const SpotifyManager = {
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }    
-        const data = await response.json();                
-        return data;
+        const data = await response.json();                   
+        return Converter.toPlayListTracks(data);
         
 
       } catch (error) {

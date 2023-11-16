@@ -67,14 +67,14 @@ export default function LeftSide() {
   }, [actionObject]);
 
   useEffect(() => {
-/*     sessionStorage.setItem('activePlayListId', activePlayListId);
+    sessionStorage.setItem('activePlayListId', activePlayListId);
     if (activePlayListId !== '' || activePlayListId !== null || activePlayListId !== 'tempValue') {
       const result = SpotifyManager.getPlayListTracks(activePlayListId);
       result.then(data => setActivePlayListTracks(data));
-    } */
+    }
 
 
-    sessionStorage.setItem('activePlayListId', activePlayListId);
+/*     sessionStorage.setItem('activePlayListId', activePlayListId);
 
     const fetchPlayListTracks = async () => {
       if (activePlayListId !== '' && activePlayListId !== null && activePlayListId !== 'tempValue') {
@@ -83,7 +83,7 @@ export default function LeftSide() {
       }
     };
   
-    fetchPlayListTracks();
+    fetchPlayListTracks(); */
 
   }, [activePlayListId,updatePlayListTracks]);
   
