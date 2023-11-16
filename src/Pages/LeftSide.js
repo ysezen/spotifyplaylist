@@ -67,11 +67,24 @@ export default function LeftSide() {
   }, [actionObject]);
 
   useEffect(() => {
-    sessionStorage.setItem('activePlayListId', activePlayListId);
+/*     sessionStorage.setItem('activePlayListId', activePlayListId);
     if (activePlayListId !== '' || activePlayListId !== null || activePlayListId !== 'tempValue') {
       const result = SpotifyManager.getPlayListTracks(activePlayListId);
       result.then(data => setActivePlayListTracks(data));
-    }
+    } */
+
+
+    sessionStorage.setItem('activePlayListId', activePlayListId);
+
+    const fetchPlayListTracks = async () => {
+      if (activePlayListId !== '' && activePlayListId !== null && activePlayListId !== 'tempValue') {
+        const data = await SpotifyManager.getPlayListTracks(activePlayListId);
+        setActivePlayListTracks(data);
+      }
+    };
+  
+    fetchPlayListTracks();
+
   }, [activePlayListId,updatePlayListTracks]);
   
 
