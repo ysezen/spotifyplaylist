@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 export default function Login() {
 
    const clientId = '2054164ed4174c6aab877310ea9eee9f';
-   const redirectUri = `https://creative-brigadeiros-30cff5.netlify.app/callbackauth`;
+   const redirectUri = `${window.location.origin}/callbackauth`;
 
    const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectUri}`;   
 
@@ -14,7 +14,7 @@ export default function Login() {
       const _expiresIn = localStorage.getItem('expiresIn');
 
       if (accessToken && (Date.now() < _expiresIn)){         
-         window.location.href = 'https://creative-brigadeiros-30cff5.netlify.app/home';
+         window.location.href = `${window.location.origin}/home';
 
       }else {
          window.location.href = accessUrl;                

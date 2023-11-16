@@ -18,7 +18,7 @@ export default function Auth() {
       if (_token) {
          localStorage.setItem('access_token', _token);
          localStorage.setItem('expiresIn', (_expiresIn *1000) + Date.now());
-         window.location.href = 'https://creative-brigadeiros-30cff5.netlify.app/home';
+         window.location.href = `${window.location.origin}/login`;
       }
    }, [])
 
