@@ -102,7 +102,7 @@ export default function Search() {
     <div className="rightSide">
       <h1>Search</h1>
       <div className="rightSideTop">
-        <input className="searchbutton" value={searchTerm} onChange={(e) => { setSearchTerm(e.target.value); setIsUserInput(true); }} type="text" placeholder="Ne dinlemek istiyorsun?" />
+        <input className="searchbutton" value={searchTerm} onChange={(e) => { setSearchTerm(e.target.value); setIsUserInput(true); }} type="text" placeholder="What do you want to listen?" />
       </div>
 
       {
