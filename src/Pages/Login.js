@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 
 export default function Login() {
 
-   const clientId = '2054164ed4174c6aab877310ea9eee9f';
+   const clientId = process.env.REACT_APP_CLIENT_ID;
    const redirectUri = `${window.location.origin}/callbackauth`;
 
    const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectUri}`;   
