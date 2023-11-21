@@ -6,6 +6,7 @@ export default function Login() {
 
    const clientId = process.env.REACT_APP_CLIENT_ID;
    const redirectUri = `${window.location.origin}/callbackauth`;
+   /*test*/
 
    const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectUri}`;   
 
