@@ -8,7 +8,7 @@ export default function Login() {
    const redirectUri = `${window.location.origin}/callbackauth`;
    /*test*/
 
-   const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectUri}`;   
+   const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&scope=playlist-modify-public user-read-private user-read-email&redirect_uri=${redirectUri}`;   
 
    const handleClick = ()=> {
       const accessToken = localStorage.getItem('access_token');
