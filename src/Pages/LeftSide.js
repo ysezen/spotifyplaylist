@@ -9,30 +9,30 @@ import { toast } from 'react-toastify'
 export default function LeftSide() {
 
   const [playListData, setPlayListData] = useState(samplePlaylistData);
-  const [activePlayListId, setActivePlayListId] = useState('2pHNxbDwpMKWoWkGlXFBzR');  
+  const [activePlayListId, setActivePlayListId] = useState('tempValue');
   const [activePlayListTracks, setActivePlayListTracks] = useState(samplePlaylistTracks);
   const [actionObject, setActionObject] = useState({});
   const [updatePlayList, setUpdatePlayList] = useState(0);
   const [updatePlayListTracks, setUpdatePlayListTracks] = useState(0);
 
   useEffect(() => {
-    SpotifyManager.getMyPlayList().then(data => setPlayListData(data));    
+    SpotifyManager.getMyPlayList().then(data => setPlayListData(data));
   }, []);
 
-  const handleListItemClick = (object) => {    
-    setActionObject(object); 
-  }; 
+  const handleListItemClick = (object) => {
+    setActionObject(object);
+  };
 
-  useEffect(() => {  
+  useEffect(() => {
 
     if (Object.keys(actionObject).length !== 0 && actionObject.id !== '' && actionObject.id && actionObject.id !== null && actionObject.id !== 'tempValue' ) {
-      
+
       switch(actionObject.dataType) {
         case 'playList':
           if(actionObject.action === 'click') {
             if(actionObject.id) {
               if(actionObject.id !== activePlayListId) {
-              setActivePlayListId(actionObject.id);          
+              setActivePlayListId(actionObject.id);
               }else{
                 setUpdatePlayListTracks(updatePlayListTracks + 1);
               }
@@ -42,7 +42,7 @@ export default function LeftSide() {
           }
           break;
         case 'playListTracks':
-          if(actionObject.action === 'click') {        
+          if(actionObject.action === 'click') {
           } else if(actionObject.action === 'delete') {
             const result = SpotifyManager.removeItemFromPlayList(activePlayListId, actionObject.id);
             result.then((data) => {
@@ -50,19 +50,19 @@ export default function LeftSide() {
                 toast.success(`Track ${actionObject.title} deleted`);
                 setUpdatePlayListTracks(updatePlayListTracks + 1)
               }
-            
+
             });
-            
+
           }
           break;
           case '':
             console.log('Unknown empty dataType');
             break;
-        default:      
+        default:
           console.log('Unknown dataType');
       }
-              
-    }   
+
+    }
 
   }, [actionObject]);
 
@@ -82,14 +82,14 @@ export default function LeftSide() {
         setActivePlayListTracks(data);
       }
     };
-  
+
     fetchPlayListTracks(); */
 
   }, [activePlayListId,updatePlayListTracks]);
-  
+
 
   return (
-    <>    
+    <>
       <div className="leftSide">
         <div className="leftSideTop">
           <Link to="/home"><Icon t={true} i={true} guid="home" /></Link>
@@ -98,14 +98,14 @@ export default function LeftSide() {
         <div className="leftSidePlaylist">
           <Icon t={true} i={true} guid="library" adDetail={` has ${playListData.total} playlist...`} />
           <div className="leftSidePlayListContainer">
-              <List 
-              onItemClick={handleListItemClick}               
+              <List
+              onItemClick={handleListItemClick}
               isAction={false}
               data={playListData.items} />
-              <List 
+              <List
                 onItemClick={handleListItemClick}
                 iconAction="delete"
-                isAction={true}                 
+                isAction={true}
                 data={activePlayListTracks ? activePlayListTracks.items : samplePlaylistTracks.items} />
           </div>
         </div>
