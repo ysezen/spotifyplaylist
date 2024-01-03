@@ -16,10 +16,10 @@ function App() {
 
   useEffect(() => {
     const result = SpotifyManager.checkLogin();
-    setIstoken(result);    
+    setIstoken(result);
   }, [isToken]);
 
-  if (isToken) {
+  if (result) {
     return (
       <div className="app">
         <ToastContainer />
@@ -27,7 +27,7 @@ function App() {
           <LeftSide />
           <Routes>
             <Route path='/' element={<Navigate to='/home' />} />
-            <Route path='/home' element={<Home />} />            
+            <Route path='/home' element={<Home />} />
             <Route path='/search' element={<Search />} />
             <Route path='/*' element={<Navigate to='/home' />} />
           </Routes>
@@ -37,7 +37,7 @@ function App() {
   } else {
     return (
       <div className="app">
-        <div className="mainHome">          
+        <div className="mainHome">
           <Routes>
             <Route path='/callbackauth' element={<Auth />} />
             <Route path='/*' element={<Navigate to='/login' />} />
