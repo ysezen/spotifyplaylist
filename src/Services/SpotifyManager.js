@@ -23,7 +23,7 @@ const SpotifyManager = {
       const _expiresIn = localStorage.getItem('expiresIn');
 
       if (!accessToken) {
-         window.location.href = `${window.location.origin}/login`;                
+         window.location.href = `${window.location.origin}/login`;
       }else if(Date.now() > _expiresIn){
          localStorage.removeItem('access_token');
          localStorage.removeItem('expiresIn');
@@ -34,7 +34,7 @@ const SpotifyManager = {
    },
    async getMe() {
       const accessToken = this.getAccessToken();
-  
+
       try {
          const response = await fetch(`https://api.spotify.com/v1/me`, {
             headers: { Authorization: `Bearer ${accessToken}` },
@@ -43,6 +43,9 @@ const SpotifyManager = {
          return Converter.toMe(data);
       } catch (error) {
          console.error("Error fetching user profile:", error);
+         localStorage.removeItem('access_token');
+         localStorage.removeItem('expiresIn');
+         window.location.href = `${window.location.origin}/login`;
       }
     },
     async getMyPlayList() {
@@ -54,13 +57,16 @@ const SpotifyManager = {
 
         if (!response.ok) {
           throw new Error('Network response was not ok');
-        }    
-        const data = await response.json();           
+        }
+        const data = await response.json();
         return Converter.toPlayList(data);
-        
+
       } catch (error) {
         console.error('There has been a problem with your fetch operation:', error);
-      }       
+        localStorage.removeItem('access_token');
+         localStorage.removeItem('expiresIn');
+         window.location.href = `${window.location.origin}/login`;
+      }
     },
 
     async getPlayListTracks(playlistId) {
@@ -69,16 +75,19 @@ const SpotifyManager = {
         const response = await fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks?limit=10&offset=0`, {
           headers: { Authorization: `Bearer ${accessToken}` },
         });
-    
+
         if (!response.ok) {
           throw new Error('Network response was not ok');
-        }    
-        const data = await response.json();                   
+        }
+        const data = await response.json();
         return Converter.toPlayListTracks(data);
-        
+
 
       } catch (error) {
         console.error('There has been a problem with your fetch operation:', error);
+        localStorage.removeItem('access_token');
+         localStorage.removeItem('expiresIn');
+         window.location.href = `${window.location.origin}/login`;
       }
     },
 
@@ -88,15 +97,18 @@ const SpotifyManager = {
         const response = await fetch(`https://api.spotify.com/v1/search?q=${term}&type=track`, {
           headers: { Authorization: `Bearer ${accessToken}` },
         });
-    
+
         if (!response.ok) {
           throw new Error('Network response was not ok');
-        }    
+        }
         const data = await response.json();
         return Converter.toSearchTracks(data);
 
       } catch (error) {
         console.error('There has been a problem with your fetch operation:', error);
+        localStorage.removeItem('access_token');
+         localStorage.removeItem('expiresIn');
+         window.location.href = `${window.location.origin}/login`;
       }
     },
 
@@ -105,18 +117,18 @@ const SpotifyManager = {
       try {
         const response = await fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`, {
           method: 'DELETE',
-          headers: { 
-            Authorization: `Bearer ${accessToken}`, 
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
             'Content-Type': 'application/json' },
           body: JSON.stringify({ tracks: [{ uri: `spotify:track:${trackId}` }] })
         });
-    
+
         if (!response.ok) {
 
           const err = await response.json();
 
           throw new Error(err.error.message);
-        }    
+        }
         const data = await response.json();
         return data;
 
@@ -130,20 +142,23 @@ const SpotifyManager = {
       try {
         const response = await fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`, {
           method: 'POST',
-          headers: { 
-            Authorization: `Bearer ${accessToken}`, 
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
             'Content-Type': 'application/json' },
             body: JSON.stringify({  uris: [`spotify:track:${trackId}`]  })
         });
-    
+
         if (!response.ok) {
           throw new Error('Network response was not ok');
-        }    
+        }
         const data = await response.json();
         return data;
 
       } catch (error) {
         console.error('There has been a problem with your fetch operation:', error);
+        localStorage.removeItem('access_token');
+         localStorage.removeItem('expiresIn');
+         window.location.href = `${window.location.origin}/login`;
       }
     }
 
