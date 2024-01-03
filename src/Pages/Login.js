@@ -13,6 +13,10 @@ export default function Login() {
       const accessToken = localStorage.getItem('access_token');
       const _expiresIn = localStorage.getItem('expiresIn');
 
+      if (!accessToken) {
+         window.location.href = accessUrl;
+      }
+
       if (accessToken && (Date.now() < _expiresIn)){
          window.location.href = `${window.location.origin}/home`;
 
